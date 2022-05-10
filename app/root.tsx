@@ -2,7 +2,6 @@ import "./app.css";
 
 import type { MetaFunction } from "@remix-run/node";
 import {
-  Link,
   Links,
   LiveReload,
   Meta,
@@ -11,6 +10,8 @@ import {
   ScrollRestoration
 } from "@remix-run/react";
 
+import NavBar from "./components/NavBar"
+import Footer from "./components/Footer"
 import styles from "./styles/app.css";
 
 export const meta: MetaFunction = () => ({
@@ -22,6 +23,7 @@ export const meta: MetaFunction = () => ({
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
 }
+
 export default function App() {
   return (
     <html lang="en">
@@ -30,14 +32,8 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <header>
-          <Link to="/">
-            Home
-          </Link>
-          <Link to="/about">
-            About
-          </Link>
-          </header>
+        <NavBar />
+        <Footer />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
